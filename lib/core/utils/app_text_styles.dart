@@ -28,8 +28,6 @@ abstract class AppTextStyels {
     fontWeight: FontWeight.w500,
     color: AppColors.wihte,
   );
-<<<<<<< Updated upstream
-=======
 
   static final pascifico400style12 = TextStyle(
     fontFamily: 'Poppins',
@@ -44,5 +42,4 @@ abstract class AppTextStyels {
     fontWeight: FontWeight.w600,
     color: AppColors.black,
   );
->>>>>>> Stashed changes
 }
