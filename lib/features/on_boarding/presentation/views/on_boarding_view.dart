@@ -1,4 +1,8 @@
 import 'package:dalel/core/functions/navigation.dart';
+<<<<<<< Updated upstream
+=======
+import 'package:dalel/features/on_boarding/presentation/views/functions/on_boarding.dart';
+>>>>>>> Stashed changes
 import 'package:dalel/features/on_boarding/presentation/views/widgets/custom_navbar.dart';
 import 'package:dalel/features/on_boarding/presentation/views/widgets/get_buttons.dart';
 import 'package:dalel/features/on_boarding/presentation/views/widgets/on_borading_widget_body.dart';
@@ -30,6 +34,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               SizedBox(height: 40),
               CustomNavBar(
                 onTap: () {
+<<<<<<< Updated upstream
+=======
+                  onBoardingVsisited();
+>>>>>>> Stashed changes
                   customRepalcementNavigate(
                     context,
                     '/signUp',

@@ -5,6 +5,12 @@ class SignInView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< Updated upstream
     return Scaffold();
+=======
+    return Scaffold(
+      appBar: AppBar(title: const Text('Sign In')),
+    );
+>>>>>>> Stashed changes
   }
 }

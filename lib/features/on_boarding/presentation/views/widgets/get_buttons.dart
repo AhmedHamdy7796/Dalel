@@ -4,6 +4,10 @@ import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/core/utils/app_text_styles.dart';
 import 'package:dalel/core/widgets/custom_button.dart';
 import 'package:dalel/features/on_boarding/data/models/on_boarding_model.dart';
+<<<<<<< Updated upstream
+=======
+import 'package:dalel/features/on_boarding/presentation/views/functions/on_boarding.dart';
+>>>>>>> Stashed changes
 import 'package:flutter/widgets.dart';
 
 class GetButtons extends StatelessWidget {
@@ -26,6 +30,10 @@ class GetButtons extends StatelessWidget {
             text: AppStrings.createAccount,
             onPressed: () {
               // Navigate to create account screen
+<<<<<<< Updated upstream
+=======
+              onBoardingVsisited();
+>>>>>>> Stashed changes
               customRepalcementNavigate(context, '/signUp');
             },
           ),
@@ -33,6 +41,10 @@ class GetButtons extends StatelessWidget {
           GestureDetector(
             onTap: () {
               // Navigate to login screen
+<<<<<<< Updated upstream
+=======
+              onBoardingVsisited();
+>>>>>>> Stashed changes
               customRepalcementNavigate(context, '/login');
             },
             child: Text(
