@@ -1,5 +1,5 @@
 abstract class AppStrings {
-<<<<<<< Updated upstream
+
   static const String appName = "Dalel",
   //!On Boarding Strings
   skip = "Skip", next = "Next", createAccount = "Sign Up", loginNow = "Login Now",
@@ -20,12 +20,10 @@ abstract class AppStrings {
   //!Forgot password
   forgotPasswordPage = "Forgot Password", sendVerificationCode = "Send Verification Code", verificationNow = "Verification Now", resendCode = "Resend Code", verifyAccount = "Verify Account", enter4DigitCodeWeHaveSentTo = "Enter 4 digit code we have sent to ", haventReceivedVerificationCode = "Haven’t received verification code?";
 }
-=======
-<<<<<<< Updated upstream
-  static const String font400weigth = 'Dalel';
-}
-=======
-  static const String appName = "Dalel",
+
+   const String font400weigth = 'Dalel';
+
+   const String appName = "Dalel",
   //!On Boarding Strings
   skip = "Skip", 
   next = "Next",
@@ -88,6 +86,3 @@ abstract class AppStrings {
   verifyAccount = "Verify Account", 
   enter4DigitCodeWeHaveSentTo = "Enter 4 digit code we have sent to ", 
   haventReceivedVerificationCode = "Haven’t received verification code?";
-}
->>>>>>> Stashed changes
->>>>>>> Stashed changes
