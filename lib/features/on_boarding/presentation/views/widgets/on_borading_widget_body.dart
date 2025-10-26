@@ -48,7 +48,7 @@ class OnBoradingWidgetBody extends StatelessWidget {
                 style: AppTextStyels.poppins500style24
                     .copyWith(fontWeight: FontWeight.bold),
                 maxLines: 2,
-                overflow: TextOverflow.ellipsis,
+                overflow: TextOverflow.ellipsis,  
               ),
               SizedBox(height: 24),
               Text(
