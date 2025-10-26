@@ -20,10 +20,7 @@ class TermsAndConditionsWidget extends StatelessWidget {
               ),
               TextSpan(
                 text: AppStrings.termsAndCondition,
-                style: AppTextStyels.pascifico400style12
-                    .copyWith(
-                      decoration: TextDecoration.underline,
-                    ),
+                style: AppTextStyels.pascifico400style12,
               ),
             ],
           ),

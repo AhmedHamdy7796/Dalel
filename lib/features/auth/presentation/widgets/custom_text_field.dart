@@ -6,9 +6,12 @@ class CustomTextFormFeild extends StatelessWidget {
   const CustomTextFormFeild({
     super.key,
     required this.labelText,
+    this.onChanged,
+    this.onFieldSubmitted,
   });
   final String labelText;
-
+  final Function(String)? onChanged;
+  final Function(String)? onFieldSubmitted;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,6 +21,8 @@ class CustomTextFormFeild extends StatelessWidget {
         top: 24,
       ),
       child: TextFormField(
+        onChanged: onChanged,
+        onFieldSubmitted: onFieldSubmitted,
         decoration: InputDecoration(
           labelText: labelText,
           labelStyle: AppTextStyels.poppins500style18
