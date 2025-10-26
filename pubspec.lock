@@ -132,16 +132,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: e1d7ffb0db475e6e845eb58b44768f50b830e23960e3df6908924acd8f7f70ea
+      sha256: d8f590a69729f719177ea68eb1e598295e8dbc41bbc247fed78b2c8a25660d7c
       url: "https://pub.dev"
     source: hosted
-<<<<<<< Updated upstream
-    version: "16.2.5"
-=======
-<<<<<<< Updated upstream
-    version: "16.2.4"
-=======
-    version: "16.2.5"
+    version: "16.3.0"
   http:
     dependency: "direct main"
     description:
@@ -158,8 +152,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.2"
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   leak_tracker:
     dependency: transitive
     description:
@@ -404,12 +396,6 @@ packages:
       sha256: "522f00f556e73044315fa4585ec3270f1808a4b186c936e612cab0b565ff1e00"
       url: "https://pub.dev"
     source: hosted
-<<<<<<< Updated upstream
-    version: "0.7.6"
-=======
-<<<<<<< Updated upstream
-    version: "0.7.4"
-=======
     version: "0.7.6"
   typed_data:
     dependency: transitive
@@ -419,8 +405,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.0"
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   vector_math:
     dependency: transitive
     description:
@@ -436,12 +420,6 @@ packages:
       sha256: "45caa6c5917fa127b5dbcfbd1fa60b14e583afdc08bfc96dda38886ca252eb60"
       url: "https://pub.dev"
     source: hosted
-<<<<<<< Updated upstream
-    version: "15.0.2"
-=======
-<<<<<<< Updated upstream
-    version: "15.0.0"
-=======
     version: "15.0.2"
   web:
     dependency: transitive
@@ -459,8 +437,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 sdks:
   dart: ">=3.9.0 <4.0.0"
   flutter: ">=3.35.0"

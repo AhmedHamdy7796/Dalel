@@ -1,11 +1,8 @@
-<<<<<<< Updated upstream
-=======
 import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/core/widgets/custom_button.dart';
 import 'package:dalel/features/auth/presentation/widgets/custom_text_field.dart';
 import 'package:dalel/features/auth/presentation/widgets/terms_and_condition.dart';
 import 'package:dalel/features/auth/presentation/widgets/welcome_text_widget.dart';
->>>>>>> Stashed changes
 import 'package:flutter/material.dart';
 
 class SignUpView extends StatelessWidget {
@@ -13,9 +10,6 @@ class SignUpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< Updated upstream
-    return Scaffold();
-=======
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -64,6 +58,5 @@ class SignUpView extends StatelessWidget {
         ),
       ),
     );
->>>>>>> Stashed changes
   }
 }
