@@ -12,24 +12,19 @@ class HaveAnAccountWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-      child: GestureDetector(
-        onTap: () {
-          Navigator.pop(context, 'sign in');
-        },
-        child: Text.rich(
-          TextSpan(
-            children: [
-              TextSpan(
-                text: text1,
-                style: AppTextStyels.pascifico400style12,
-              ),
-              TextSpan(
-                text: text2,
-                style: AppTextStyels.pascifico400style12
-                    .copyWith(color: AppColors.lightGray),
-              ),
-            ],
-          ),
+      child: Text.rich(
+        TextSpan(
+          children: [
+            TextSpan(
+              text: text1,
+              style: AppTextStyels.pascifico400style12,
+            ),
+            TextSpan(
+              text: text2,
+              style: AppTextStyels.pascifico400style12
+                  .copyWith(color: AppColors.lightGray),
+            ),
+          ],
         ),
       ),
     );

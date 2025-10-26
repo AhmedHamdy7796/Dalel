@@ -25,47 +25,51 @@ class SignUpView extends StatelessWidget {
               ),
             ),
             SliverToBoxAdapter(child: SizedBox(height: 16)),
-            SliverToBoxAdapter(
-              child: CustomTextFeild(
-                labelText: AppStrings.fristName,
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: CustomTextFeild(
-                labelText: AppStrings.lastName,
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: CustomTextFeild(
-                labelText: AppStrings.emailAddress,
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: CustomTextFeild(
-                labelText: AppStrings.password,
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: TermsAndConditionsWidget(),
-            ),
-            SliverToBoxAdapter(child: SizedBox(height: 88)),
-            SliverToBoxAdapter(
-              child: CustomButton(
-                text: AppStrings.signUp,
-                onPressed: () {},
-              ),
-            ),
+            SliverToBoxAdapter(child: CustomSignUpForm()),
             SliverToBoxAdapter(child: SizedBox(height: 16)),
             SliverToBoxAdapter(
               child: Center(
                 child: HaveAnAccountWidget(
                   text1: AppStrings.alreadyHaveAnAccount,
-                  text2: AppStrings.loginNow,
+                  text2: AppStrings.signIn,
                 ),
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class CustomSignUpForm extends StatelessWidget {
+  const CustomSignUpForm({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      child: Column(
+        children: [
+          CustomTextFormFeild(
+            labelText: AppStrings.fristName,
+          ),
+          CustomTextFormFeild(
+            labelText: AppStrings.lastName,
+          ),
+          CustomTextFormFeild(
+            labelText: AppStrings.emailAddress,
+          ),
+          CustomTextFormFeild(
+            labelText: AppStrings.password,
+          ),
+          TermsAndConditionsWidget(),
+          SizedBox(height: 88),
+          CustomButton(
+            text: AppStrings.signUp,
+            onPressed: () {},
+          ),
+          SizedBox(height: 16),
+        ],
       ),
     );
   }

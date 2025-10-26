@@ -2,8 +2,8 @@ import 'package:dalel/core/utils/app_colors.dart';
 import 'package:dalel/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
-class CustomTextFeild extends StatelessWidget {
-  const CustomTextFeild({
+class CustomTextFormFeild extends StatelessWidget {
+  const CustomTextFormFeild({
     super.key,
     required this.labelText,
   });
@@ -17,7 +17,7 @@ class CustomTextFeild extends StatelessWidget {
         left: 8,
         top: 24,
       ),
-      child: TextField(
+      child: TextFormField(
         decoration: InputDecoration(
           labelText: labelText,
           labelStyle: AppTextStyels.poppins500style18
