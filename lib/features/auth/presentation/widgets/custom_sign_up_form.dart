@@ -1,3 +1,4 @@
+import 'package:dalel/core/utils/app_colors.dart';
 import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/core/widgets/custom_button.dart';
 import 'package:dalel/features/auth/presentation/auth_cubit/cubit/auth_cubit.dart';
@@ -12,56 +13,70 @@ class CustomSignUpForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthCubit,AuthState>(
+    return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {},
       builder: (context, state) {
-      return Form(
-        child: Column(
-          children: [
-            CustomTextFormFeild(
-              labelText: AppStrings.fristName,
-              onChanged: (
-                firstName
-              ){
-                BlocProvider.of<AuthCubit>(context).firstName = firstName;
-              },
-            ),
-            CustomTextFormFeild(
-              labelText: AppStrings.lastName,
-              onChanged: (
-                lastName
-              ){
-                BlocProvider.of<AuthCubit>(context).lastName = lastName;
-              },
-            ),
-            CustomTextFormFeild(
-              labelText: AppStrings.emailAddress,
-              onChanged: (
-                emailAddress
-              ){
-                BlocProvider.of<AuthCubit>(context).emailAddress = emailAddress;
-              },
-            ),
-            CustomTextFormFeild(
-              labelText: AppStrings.password,
-              onChanged: (
-                password
-              ){
-                BlocProvider.of<AuthCubit>(context).password = password;
-              },
-            ),
-            TermsAndConditionsWidget(),
-            SizedBox(height: 88),
-            CustomButton(
-              text: AppStrings.signUp,
-              onPressed: () {
-                BlocProvider.of<AuthCubit>(context).signUpWithEmailAndPassword();
-              },
-            ),
-            SizedBox(height: 16),
-          ],
-        ),
-      );
-    });
+        AuthCubit authCubit = BlocProvider.of<AuthCubit>(
+          context,
+        );
+        return Form(
+          key: authCubit.signUpFormKey,
+          child: Column(
+            children: [
+              CustomTextFormFeild(
+                labelText: AppStrings.fristName,
+                onChanged: (firstName) {
+                  authCubit.firstName = firstName;
+                },
+              ),
+              CustomTextFormFeild(
+                labelText: AppStrings.lastName,
+                onChanged: (lastName) {
+                  authCubit.lastName = lastName;
+                },
+              ),
+              CustomTextFormFeild(
+                labelText: AppStrings.emailAddress,
+                onChanged: (emailAddress) {
+                  authCubit.emailAddress = emailAddress;
+                },
+              ),
+              CustomTextFormFeild(
+                labelText: AppStrings.password,
+                onChanged: (password) {
+                  authCubit.password = password;
+                },
+              ),
+              TermsAndConditionsWidget(),
+              SizedBox(height: 88),
+              CustomButton(
+                color:
+                    authCubit
+                            .termAndConditionCheckBoxValue ==
+                        false
+                    ? AppColors.grey
+                    : null,
+                text: AppStrings.signUp,
+                onPressed: () {
+                  if (authCubit
+                          .termAndConditionCheckBoxValue ==
+                      true) {
+                    if (authCubit
+                        .signUpFormKey
+                        .currentState!
+                        .validate()) {
+                      BlocProvider.of<AuthCubit>(
+                        context,
+                      ).signUpWithEmailAndPassword();
+                    }
+                  }
+                },
+              ),
+              SizedBox(height: 16),
+            ],
+          ),
+        );
+      },
+    );
   }
 }

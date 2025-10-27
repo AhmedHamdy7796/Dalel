@@ -9,3 +9,5 @@ final class SignUpFailuerState extends AuthState {
   final String errorMessage;
   SignUpFailuerState({required this.errorMessage});
 }   
+
+final class UpdateTermsAndConditionsCheckBox extends AuthState {}   
