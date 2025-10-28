@@ -1,3 +1,4 @@
+import 'package:dalel/core/functions/navigation.dart';
 import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/features/auth/presentation/widgets/custom_sign_up_form.dart';
 import 'package:dalel/features/auth/presentation/widgets/have_account_widget.dart';
@@ -30,6 +31,9 @@ class SignUpView extends StatelessWidget {
                 child: HaveAnAccountWidget(
                   text1: AppStrings.alreadyHaveAnAccount,
                   text2: AppStrings.signIn,
+                  onTap: () {
+                    customRepalacementNavigate(context, '/login');
+                  },
                 ),
               ),
             ),
