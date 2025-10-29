@@ -32,10 +32,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               CustomNavBar(
                 onTap: () {
                   onBoardingVsisited();
-                  customRepalcementNavigate(
-                    context,
-                    '/signUp',
-                  );
+                  customNavigate(context, '/signUp');
                 },
               ),
               OnBoradingWidgetBody(

@@ -3,6 +3,8 @@ import 'package:dalel/core/utils/app_strings.dart';
 import 'package:dalel/core/utils/app_text_styles.dart';
 import 'package:dalel/core/database/cash/cash_helper.dart';
 import 'package:dalel/core/services/service_locator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class SplashView extends StatefulWidget {
@@ -18,10 +20,15 @@ class _SplashViewState extends State<SplashView> {
     super.initState();
 
     bool isOnBoardingVisited =
-        getIt<CashHelper>().getData(key: 'isOnBoardingVisited') ?? false;
+        getIt<CashHelper>().getData(
+          key: 'isOnBoardingVisited',
+        ) ??
+        false;
 
     if (isOnBoardingVisited == true) {
-      delayedNavigate(context, '/signUp');
+      FirebaseAuth.instance.currentUser == null?
+      delayedNavigate(context, '/signUp'):
+      delayedNavigate(context, '/home');
     } else {
       delayedNavigate(context, '/onBoarding');
     }

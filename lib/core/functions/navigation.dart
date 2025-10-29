@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 
-void customRepalcementNavigate(context, String path) {
+void customNavigate(context, String path) {
   GoRouter.of(context).push(path);
 }
 

@@ -28,7 +28,7 @@ class GetButtons extends StatelessWidget {
             onPressed: () {
               // Navigate to create account screen
               onBoardingVsisited();
-              customRepalcementNavigate(context, '/signUp');
+              customNavigate(context, '/signUp');
             },
           ),
           SizedBox(height: 24),
@@ -36,7 +36,7 @@ class GetButtons extends StatelessWidget {
             onTap: () {
               // Navigate to login screen
               onBoardingVsisited();
-              customRepalcementNavigate(context, '/login');
+              customNavigate(context, '/login');
             },
             child: Text(
               AppStrings.loginNow,
