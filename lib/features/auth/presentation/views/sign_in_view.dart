@@ -1,6 +1,9 @@
 import 'package:dalel/core/functions/navigation.dart';
-import 'package:dalel/features/auth/presentation/widgets/custom_text_field.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:dalel/core/utils/app_strings.dart';
+import 'package:dalel/features/auth/presentation/widgets/custom_signin_form.dart';
+import 'package:dalel/features/auth/presentation/widgets/have_account_widget.dart';
+import 'package:dalel/features/auth/presentation/widgets/welcome_banner.dart';
+import 'package:dalel/features/auth/presentation/widgets/welcome_text_widget.dart';
 import 'package:flutter/material.dart';
 
 class SignInView extends StatelessWidget {
@@ -9,33 +12,33 @@ class SignInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('login'),
-        actions: [
-          IconButton(
-            onPressed: () {
-              FirebaseAuth.instance.signOut();
-              customNavigate(context, '/signUp');
-            },
-            icon: Icon(Icons.logout),
+      body: CustomScrollView(
+        physics: BouncingScrollPhysics(),
+        slivers: [
+          SliverToBoxAdapter(child: WelconmBanner()),
+          SliverToBoxAdapter(child: SizedBox(height: 32)),
+          SliverToBoxAdapter(
+            child: WelcomeTextWidget(text: AppStrings.welcomeBack),
           ),
+          SliverToBoxAdapter(child: SizedBox(height: 32)),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: CustomSignInForm(),
+            ),
+          ),
+          SliverToBoxAdapter(child: SizedBox(height: 16)),
+          SliverToBoxAdapter(
+            child: HaveAnAccountWidget(
+              text1: AppStrings.dontHaveAnAccount,
+              text2: AppStrings.signUp,
+              onTap: () {
+                customRepalacementNavigate(context, "/signUp");
+              },
+            ),
+          ),
+          SliverToBoxAdapter(child: SizedBox(height: 16)),
         ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: CustomScrollView(
-          slivers: [
-            SliverToBoxAdapter(
-              child: SizedBox(height: 152),
-            ),
-            SliverToBoxAdapter(
-              child: CustomTextFormFeild(
-                labelText: 'Email',
-                onChanged: (email) {},
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }

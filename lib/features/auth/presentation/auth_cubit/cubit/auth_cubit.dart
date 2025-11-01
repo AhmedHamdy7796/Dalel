@@ -10,49 +10,71 @@ class AuthCubit extends Cubit<AuthState> {
   String? emailAddress;
   String? password;
   bool? termAndConditionCheckBoxValue = false;
-   bool? obscurePasswordTextValue = true;
-  final GlobalKey<FormState> signUpFormKey = GlobalKey();
+  bool? obscurePasswordTextValue = true;
+  final GlobalKey<FormState> signupFormKey = GlobalKey();
+  final GlobalKey<FormState> signinFormKey = GlobalKey();
 
   signUpWithEmailAndPassword() async {
     try {
-      emit(SignUpLoadingState());
-      await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-            email: emailAddress!,
-            password: password!,
-          );
-      emit(SignUpSuccessState());
+      emit(SignupLoadingState());
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailAddress!,
+        password: password!,
+      );
+      emit(SignupSuccessState());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         emit(
-          SignUpFailuerState(
-            errorMessage:
-                'The password provided is too weak.',
+          SignupFailuerState(
+            errorMessage: 'The password provided is too weak.',
           ),
         );
       } else if (e.code == 'email-already-in-use') {
         emit(
-          SignUpFailuerState(
-            errorMessage:
-                'The account already exists for that email.',
+          SignupFailuerState(
+            errorMessage: 'The account already exists for that email.',
           ),
         );
       }
     } catch (e) {
-      emit(SignUpFailuerState(errorMessage: e.toString()));
+      emit(SignupFailuerState(errorMessage: e.toString()));
     }
   }
 
   updateTermsAndConditionsCheckBox({required newValue}) {
     termAndConditionCheckBoxValue = newValue;
-    emit(UpdateTermsAndConditionsCheckBox()); 
+    emit(UpdateTermsAndConditionsCheckBox());
   }
-    void obscurePasswordText() {
+
+  void obscurePasswordText() {
     if (obscurePasswordTextValue == true) {
       obscurePasswordTextValue = false;
     } else {
       obscurePasswordTextValue = true;
     }
     emit(ObscurePasswordTextUpdateState());
+  }
+
+  signInWithEmailAndPassword() async {
+    try {
+      emit(SigninLoadingState());
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailAddress!,
+        password: password!,
+      );
+      emit(SigninSuccessState());
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        emit(SigninFailuerState(errorMessage: 'No user found for that email.'));
+      } else if (e.code == 'wrong-password') {
+        emit(
+          SigninFailuerState(
+            errorMessage: 'Wrong password provided for that user.',
+          ),
+        );
+      }
+    } catch (e) {
+      emit(SigninFailuerState(errorMessage: e.toString()));
+    }
   }
 }

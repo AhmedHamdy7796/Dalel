@@ -1,15 +1,25 @@
 class AuthState {}
-final class AuthInitial extends AuthState {}   
 
-final class SignUpLoadingState extends AuthState {}   
+final class AuthInitial extends AuthState {}
 
-final class SignUpSuccessState extends AuthState {}   
+final class SignupLoadingState extends AuthState {}
 
-final class SignUpFailuerState extends AuthState {
+final class SignupSuccessState extends AuthState {}
+
+final class SignupFailuerState extends AuthState {
   final String errorMessage;
-  SignUpFailuerState({required this.errorMessage});
-}   
+  SignupFailuerState({required this.errorMessage});
+}
+
+final class SigninLoadingState extends AuthState {}
+
+final class SigninSuccessState extends AuthState {}
+
+final class SigninFailuerState extends AuthState {
+  final String errorMessage;
+  SigninFailuerState({required this.errorMessage});
+}
 
 final class ObscurePasswordTextUpdateState extends AuthState {}
 
-final class UpdateTermsAndConditionsCheckBox extends AuthState {}   
+final class UpdateTermsAndConditionsCheckBox extends AuthState {}

@@ -14,7 +14,7 @@ class HomeView extends StatelessWidget {
           IconButton(
             onPressed: () {
               FirebaseAuth.instance.signOut();
-              customRepalacementNavigate(context, '/login');
+              customNavigate(context, '/signIn');
             },
             icon: Icon(Icons.logout),
           ),

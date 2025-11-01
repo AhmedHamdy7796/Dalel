@@ -12,35 +12,30 @@ class SignUpView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
           slivers: [
-            SliverToBoxAdapter(
-              child: SizedBox(height: 152),
+            const SliverToBoxAdapter(child: SizedBox(height: 152)),
+            const SliverToBoxAdapter(
+              child: WelcomeTextWidget(text: AppStrings.welcome),
             ),
+            const SliverToBoxAdapter(child: SizedBox(height: 16)),
+            const SliverToBoxAdapter(child: CustomSignUpForm()),
+            const SliverToBoxAdapter(child: SizedBox(height: 16)),
             SliverToBoxAdapter(
-              child: WelcomeTextWidget(
-                text: AppStrings.welcome,
+              child: HaveAnAccountWidget(
+                text1: AppStrings.alreadyHaveAnAccount,
+                text2: AppStrings.signIn,
+                onTap: () {
+                  customRepalacementNavigate(context, "/signIn");
+                },
               ),
             ),
-            SliverToBoxAdapter(child: SizedBox(height: 16)),
-            SliverToBoxAdapter(child: CustomSignUpForm()),
-            SliverToBoxAdapter(child: SizedBox(height: 16)),
-            SliverToBoxAdapter(
-              child: Center(
-                child: HaveAnAccountWidget(
-                  text1: AppStrings.alreadyHaveAnAccount,
-                  text2: AppStrings.signIn,
-                  onTap: () {
-                    customRepalacementNavigate(context, '/login');
-                  },
-                ),
-              ),
-            ),
+            const SliverToBoxAdapter(child: SizedBox(height: 16)),
           ],
         ),
       ),
     );
   }
-  
 }

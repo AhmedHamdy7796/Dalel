@@ -4,7 +4,6 @@ import 'package:dalel/core/utils/app_text_styles.dart';
 import 'package:dalel/core/database/cash/cash_helper.dart';
 import 'package:dalel/core/services/service_locator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class SplashView extends StatefulWidget {
@@ -26,9 +25,9 @@ class _SplashViewState extends State<SplashView> {
         false;
 
     if (isOnBoardingVisited == true) {
-      FirebaseAuth.instance.currentUser == null?
-      delayedNavigate(context, '/signUp'):
-      delayedNavigate(context, '/home');
+      FirebaseAuth.instance.currentUser == null
+          ? delayedNavigate(context, '/signIn')
+          : delayedNavigate(context, '/home');
     } else {
       delayedNavigate(context, '/onBoarding');
     }

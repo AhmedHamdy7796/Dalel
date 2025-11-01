@@ -41,6 +41,8 @@ dependencies:
   firebase_core: ^4.2.0
   firebase_auth: ^6.1.1
   fluttertoast: ^9.0.0
+  flutter_svg: ^2.2.1
+
 
 dev_dependencies:
 
@@ -84,6 +86,9 @@ flutter:
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Medium.ttf
+    - family: Saira
+      fonts:
+        - asset: assets/fonts/SairaCondensed-Regular.ttf
 
   # fonts:
   #   - family: Schyler
