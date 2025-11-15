@@ -20,6 +20,14 @@ final class SigninFailuerState extends AuthState {
   SigninFailuerState({required this.errorMessage});
 }
 
+final class ResetPasswordLoadingState extends AuthState {}
+
+final class ResetPasswordSuccessState extends AuthState {}
+
+final class ResetPasswordFailuerState extends AuthState {
+  final String errorMessage;
+  ResetPasswordFailuerState({required this.errorMessage});
+}
 final class ObscurePasswordTextUpdateState extends AuthState {}
 
 final class UpdateTermsAndConditionsCheckBox extends AuthState {}

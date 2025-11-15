@@ -17,7 +17,7 @@ abstract class AppStrings {
   //!Payment Strings
   checkoutScreen = "Checkout Screen", deliveryAddress = "Delivery Address", change = "Change", items = "1 items", selectedProduct = "Selected Product", paymentMethod = "Payment Method", confirmPayment = "Confirm Payment", orderSuccess = "Order Success", thankYou = "Thank you for your order here and your package will be sent to your address very quickly and fast good product", backToHome = "Back To Home",
   //!Forgot password
-  forgotPasswordPage = "Forgot Password", sendVerificationCode = "Send Verification Code", verificationNow = "Verification Now", resendCode = "Resend Code", verifyAccount = "Verify Account", enter4DigitCodeWeHaveSentTo = "Enter 4 digit code we have sent to ", haventReceivedVerificationCode = "Haven’t received verification code?";
+  forgotPasswordPage = "Forgot Password", restPasswordLink = "Send Reset Password Link", verificationNow = "Verification Now", resendCode = "Resend Code", verifyAccount = "Verify Account", enter4DigitCodeWeHaveSentTo = "Enter 4 digit code we have sent to ", haventReceivedVerificationCode = "Haven’t received verification code?";
 }
 
 const String font400weigth = 'Dalel';

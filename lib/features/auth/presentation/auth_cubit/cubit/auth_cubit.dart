@@ -13,6 +13,7 @@ class AuthCubit extends Cubit<AuthState> {
   bool? obscurePasswordTextValue = true;
   final GlobalKey<FormState> signupFormKey = GlobalKey();
   final GlobalKey<FormState> signinFormKey = GlobalKey();
+  final GlobalKey<FormState> forgotPasswordFormkey = GlobalKey();
 
   signUpWithEmailAndPassword() async {
     try {
@@ -21,6 +22,7 @@ class AuthCubit extends Cubit<AuthState> {
         email: emailAddress!,
         password: password!,
       );
+      // verifyEmail();
       emit(SignupSuccessState());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -32,14 +34,25 @@ class AuthCubit extends Cubit<AuthState> {
       } else if (e.code == 'email-already-in-use') {
         emit(
           SignupFailuerState(
-            errorMessage: 'The account already exists for that email.',
+            errorMessage:
+                'The account already exists for that email.',
           ),
         );
+      } else if (e.code == 'invalid-email') {
+        emit(
+          SignupFailuerState(errorMessage: 'This email is invalid.'),
+        );
+      } else {
+        emit(SigninFailuerState(errorMessage: e.code));
       }
     } catch (e) {
       emit(SignupFailuerState(errorMessage: e.toString()));
     }
   }
+
+  // verifyEmail() async {
+  //   await FirebaseAuth.instance.currentUser!.sendEmailVerification();
+  // }
 
   updateTermsAndConditionsCheckBox({required newValue}) {
     termAndConditionCheckBoxValue = newValue;
@@ -65,16 +78,38 @@ class AuthCubit extends Cubit<AuthState> {
       emit(SigninSuccessState());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        emit(SigninFailuerState(errorMessage: 'No user found for that email.'));
+        emit(
+          SigninFailuerState(
+            errorMessage: 'No user found for that email.',
+          ),
+        );
       } else if (e.code == 'wrong-password') {
         emit(
           SigninFailuerState(
             errorMessage: 'Wrong password provided for that user.',
           ),
         );
+      } else {
+        emit(
+          SignupFailuerState(
+            errorMessage: 'Check Your Email and Password!.',
+          ),
+        );
       }
     } catch (e) {
       emit(SigninFailuerState(errorMessage: e.toString()));
+    }
+  }
+
+  resetPasswordWithLink() async {
+    try {
+      emit(ResetPasswordLoadingState());
+      await FirebaseAuth.instance.sendPasswordResetEmail(
+        email: emailAddress!,
+      );
+      emit(ResetPasswordFailuerState(errorMessage: ''));
+    } catch (e) {
+      emit(ResetPasswordFailuerState(errorMessage: e.toString()));
     }
   }
 }

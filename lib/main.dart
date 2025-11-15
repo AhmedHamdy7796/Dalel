@@ -16,5 +16,3 @@ void main() async {
   checkStateChanges();
   runApp(const Dalel());
 }
-
-

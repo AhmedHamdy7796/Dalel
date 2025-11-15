@@ -10,13 +10,15 @@ class ForgotPasswordTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        customRepalacementNavigate(context, 'path');
+        customRepalacementNavigate(context, "/forgotPassword");
       },
       child: Align(
         alignment: Alignment.centerRight,
         child: Text(
           AppStrings.forgotPassword,
-          style: AppTextStyels.poppins600style28.copyWith(fontSize: 12),
+          style: AppTextStyels.poppins600style28.copyWith(
+            fontSize: 12,
+          ),
         ),
       ),
     );
