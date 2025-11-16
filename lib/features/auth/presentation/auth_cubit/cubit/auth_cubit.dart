@@ -16,7 +16,7 @@ class AuthCubit extends Cubit<AuthState> {
   final GlobalKey<FormState> signinFormKey = GlobalKey();
   final GlobalKey<FormState> forgotPasswordFormkey = GlobalKey();
 
-  signUpWithEmailAndPassword() async {
+  Future<void> signUpWithEmailAndPassword() async {
     try {
       emit(SignupLoadingState());
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -27,36 +27,40 @@ class AuthCubit extends Cubit<AuthState> {
       // verifyEmail();
       emit(SignupSuccessState());
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        emit(
-          SignupFailuerState(
-            errorMessage: 'The password provided is too weak.',
-          ),
-        );
-      } else if (e.code == 'email-already-in-use') {
-        emit(
-          SignupFailuerState(
-            errorMessage:
-                'The account already exists for that email.',
-          ),
-        );
-      } else if (e.code == 'invalid-email') {
-        emit(
-          SignupFailuerState(errorMessage: 'This email is invalid.'),
-        );
-      } else {
-        emit(SigninFailuerState(errorMessage: e.code));
-      }
+      _signUpHandleException(e);
     } catch (e) {
       emit(SignupFailuerState(errorMessage: e.toString()));
     }
   }
 
-  // verifyEmail() async {
+  void _signUpHandleException(FirebaseAuthException e) {
+    if (e.code == 'weak-password') {
+      emit(
+        SignupFailuerState(
+          errorMessage: 'The password provided is too weak.',
+        ),
+      );
+    } else if (e.code == 'email-already-in-use') {
+      emit(
+        SignupFailuerState(
+          errorMessage:
+              'The account already exists for that email.',
+        ),
+      );
+    } else if (e.code == 'invalid-email') {
+      emit(
+        SignupFailuerState(errorMessage: 'This email is invalid.'),
+      );
+    } else {
+      emit(SigninFailuerState(errorMessage: e.code));
+    }
+  }
+
+  // Future<void> verifyEmail() async {
   //   await FirebaseAuth.instance.currentUser!.sendEmailVerification();
   // }
 
-  updateTermsAndConditionsCheckBox({required newValue}) {
+  void updateTermsAndConditionsCheckBox({required newValue}) {
     termAndConditionCheckBoxValue = newValue;
     emit(UpdateTermsAndConditionsCheckBox());
   }
@@ -70,7 +74,7 @@ class AuthCubit extends Cubit<AuthState> {
     emit(ObscurePasswordTextUpdateState());
   }
 
-  signInWithEmailAndPassword() async {
+  Future<void> signInWithEmailAndPassword() async {
     try {
       emit(SigninLoadingState());
       await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -103,7 +107,7 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  resetPasswordWithLink() async {
+  Future<void> resetPasswordWithLink() async {
     try {
       emit(ResetPasswordLoadingState());
       await FirebaseAuth.instance.sendPasswordResetEmail(
@@ -114,7 +118,8 @@ class AuthCubit extends Cubit<AuthState> {
       emit(ResetPasswordFailuerState(errorMessage: e.toString()));
     }
   }
-  addUserProfile()async{
+
+  Future<void> addUserProfile()async{
     CollectionReference users = FirebaseFirestore.instance.collection('users');
     await users.add({
       "email": emailAddress,

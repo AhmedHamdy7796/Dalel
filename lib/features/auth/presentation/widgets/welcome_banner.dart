@@ -18,20 +18,14 @@ class WelconmBanner extends StatelessWidget {
         children: [
           Text(
             AppStrings.appName,
-            style: AppTextStyels.saira700style32,
+            style: AppTextStyels.saira700style42,
           ),
-          SizedBox(height: 18),
           Row(
-            mainAxisAlignment:
-                MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              SvgPicture.asset(
-                AppAssets.assetsImagesVector1,
-              ),
-              SvgPicture.asset(
-                AppAssets.assetsImagesVector2,
-              ),
+              SvgPicture.asset(AppAssets.assetsImagesVector1),
+              SvgPicture.asset(AppAssets.assetsImagesVector2),
             ],
           ),
         ],

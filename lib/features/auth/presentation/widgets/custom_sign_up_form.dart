@@ -18,7 +18,9 @@ class CustomSignUpForm extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is SignupSuccessState) {
-          showToast("Successfully, Check your email to verify your account");
+          showToast(
+            "Successfully, Check your email to verify your account",
+          );
           customRepalacementNavigate(context, "/signIn");
         } else if (state is SignupFailuerState) {
           showToast(state.errorMessage);
@@ -68,24 +70,27 @@ class CustomSignUpForm extends StatelessWidget {
               TermsAndConditionsWidget(),
               SizedBox(height: 88),
               state is SignupLoadingState
-                  ? CircularProgressIndicator(color: AppColors.primaryColor)
+                  ? CircularProgressIndicator(
+                      color: AppColors.primaryColor,
+                    )
                   : CustomButton(
-                      color: authCubit.termAndConditionCheckBoxValue == false
+                      color:
+                          authCubit.termAndConditionCheckBoxValue ==
+                              false
                           ? AppColors.grey
                           : null,
                       text: AppStrings.signUp,
-                      onPressed: () {
-                        if (authCubit.termAndConditionCheckBoxValue == true) {
+                      onPressed: () async {
+                        if (authCubit.termAndConditionCheckBoxValue ==
+                            true) {
                           if (authCubit.signupFormKey.currentState!
                               .validate()) {
-                            BlocProvider.of<AuthCubit>(
-                              context,
-                            ).signUpWithEmailAndPassword();
+                            await authCubit
+                                .signUpWithEmailAndPassword();
                           }
                         }
                       },
                     ),
-              SizedBox(height: 16),
             ],
           ),
         );

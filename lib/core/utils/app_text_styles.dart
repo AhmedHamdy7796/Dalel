@@ -43,9 +43,9 @@ abstract class AppTextStyels {
     color: AppColors.black,
   );
 
-  static final saira700style32 = TextStyle(
-    fontFamily: 'Saira',
-    fontSize: 32,
+  static final saira700style42 = TextStyle(
+    fontFamily: 'Pacifico',
+    fontSize: 42,
     fontWeight: FontWeight.w700,
     color: AppColors.wihte,
   );
