@@ -43,6 +43,7 @@ dependencies:
   fluttertoast: ^9.0.0
   flutter_svg: ^2.2.1
   flutter_screenutil: ^5.9.3
+  cloud_firestore: ^6.1.0
 
 
 dev_dependencies:
